@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Khan Academy Profile Viewer</title>
+<link rel="stylesheet" type="text/css" href="/static_viewer/style.css" />
+<link rel="stylesheet" type="text/css" href="/static_viewer/elements.css" />
+</head>
+<body>
+<div id="main_container">
+	<div id="header">
+    	<div class="logo"><img src="/static_viewer/images/logo.png" border="0" alt="" title="" /></div>       
+    </div>
+        <div class="menu">
+        	<ul>                                                                         
+        		<li><a href="/menu_viewer">home</a></li>
+        		{% if viewerUser.professor or viewerUser.student %} 
+                	<li><a href="/profile_viewer">user</a></li>
+                {% endif %}
+                {% if viewerUser.professor %} 
+               		<li><a href="/class_viewer">class</a></li>
+               	{% endif %}
+                <li class="selected"><a href="/about_viewer">about</a></li>
+        	</ul>
+        </div>
+    <div class="center_content">
+            <div class="features">   
+            <div class="title">About Us</div>
+             <p class="welcome">
+			  The ALAS-KA tool has been developed in the <a href="http://gradient.it.uc3m.es/">Gradient</a> lab, which is the e-learning laboratory inside the <a href="http://www.gast.it.uc3m.es/">GAST</a> group, as a part of the <a href="http://www.it.uc3m.es/vi/">Department of Telematic Engineering</a>, at the <a href="http://www.uc3m.es/">Carlos III University of Madrid</a> (Spain). The people involved in the design and implementation of this tool  have been:
+			 </p>
+			  <div class="features">
+                    <ul class="list">
+                    <li><span>-</span>Carlos Delgado Kloos -<a href="mailto: cdk@it.uc3m.es">email</a></li>
+					<li><span>-</span>Pedro J. Muñoz-Merino -<a href="mailto: pedmume@it.uc3m.es">email</a></li>
+					<li><span>-</span>José A. Ruipérez Valiente -<a href="mailto: jruipere@it.uc3m.es">email</a></li>
+                    </ul> 
+             </div>			 	
+             <p class="welcome">
+            For any feedback, recommendations or technical problems please contact <a href="mailto: jruipere@it.uc3m.es">here</a>.
+             </p>            
+         </div> 	              
+    </div>    
+    <div id="footer">                                              
+        <div class="left_footer"><pre>2014 Universidad Carlos III de Madrid. &copy; All rights reserved.                     Template provided by<a href="http://csstemplatesmarket.com">csstemplatesmarket.</a></pre></div>
+        <div class="right_footer"><img src="https://developers.google.com/appengine/images/appengine-silver-120x30.gif" alt="Powered by Google App Engine" /></div>
+    </div>
+    
+    
+    
+</div>
+<!-- end of main_container -->
+
+</body>
+</html>

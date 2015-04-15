@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="/static_viewer/elements.css" />
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+google.load("visualization", "1", {packages:["corechart"]});
+google.setOnLoadCallback(drawChart);
+function drawChart() {
+	
+    // Exercise explorer    
+    var dataPie = google.visualization.arrayToDataTable([
+          ['Exercises', 'Number of students'],
+          ['A few exercises', {{exercise_explorer_groups.0}}],
+          ['Several exercises', {{exercise_explorer_groups.1}}],
+          ['Around half exercises', {{exercise_explorer_groups.2}}],
+          ['Many exercises', {{exercise_explorer_groups.3}}],
+          ['Majority of exercises', {{exercise_explorer_groups.4}}]
+        ]);
+
+        var optionsPie = {
+          title: 'Different Exercises Accessed',
+          backgroundColor: '#e9e5e2',
+          width: '400px',
+          colors: ['#92C0EE', '#83AED8','#7398BD','#506A84','#394C5F']
+        };
+
+        var chartPieExercises = new google.visualization.PieChart(document.getElementById('pieExerciseExplorer'));
+        chartPieExercises.draw(dataPie, optionsPie);
+        
+    // Video explorer
+    var dataPieVideos = google.visualization.arrayToDataTable([
+        ['Videos', 'Number of students'],
+        ['A few videos', {{video_explorer_groups.0}}],
+        ['Several videos', {{video_explorer_groups.1}}],
+        ['Around half videos', {{video_explorer_groups.2}}],
+        ['Many videos', {{video_explorer_groups.3}}],
+        ['Majority of videos', {{video_explorer_groups.4}}]
+        ]);
+
+        var optionsPieVideos = {
+          title: 'Different Videos Accessed',
+          backgroundColor: '#e9e5e2',
+          width: '400px',
+          colors: ['#ACAFF6', '#9597D1','#7D7FB5','#64658A','#4D4E69']
+        };
+
+    var chartVideos = new google.visualization.PieChart(document.getElementById('pieVideoExplorer'));
+    chartVideos.draw(dataPieVideos, optionsPieVideos);
+    
+    // Exercise Abandon
+    var dataPieVideos = google.visualization.arrayToDataTable([
+        ['Abandoned exercises', 'Number of students'],
+        ['A few abandoned', {{exercise_abandon_groups.0}}],
+        ['Several abandoned', {{exercise_abandon_groups.1}}],
+        ['Around half abandoned', {{exercise_abandon_groups.2}}],
+        ['Many abandoned', {{exercise_abandon_groups.3}}],
+        ['Majority of abandoned', {{exercise_abandon_groups.4}}]
+        ]);
+
+        var optionsPieVideos = {
+          title: 'Exercise Abandon',
+          backgroundColor: '#e9e5e2',
+          width: '400px',
+          colors: ['#92C0EE', '#83AED8','#7398BD','#506A84','#394C5F']
+        };
+
+        var chartVideos = new google.visualization.PieChart(document.getElementById('pieExerciseAbandon'));
+        chartVideos.draw(dataPieVideos, optionsPieVideos);
+        
+    // Video abandon
+    var dataPieVideos = google.visualization.arrayToDataTable([
+        ['Abandoned videos', 'Number of students'],
+        ['A few abandoned', {{video_abandon_groups.0}}],
+        ['Several abandoned', {{video_abandon_groups.1}}],
+        ['Around half abandoned', {{video_abandon_groups.2}}],
+        ['Many abandoned', {{video_abandon_groups.3}}],
+        ['Majority of abandoned', {{video_abandon_groups.4}}]
+        ]);
+
+        var optionsPieVideos = {
+          title: 'Video Abandon',
+          backgroundColor: '#e9e5e2',
+          width: '400px',
+          colors: ['#ACAFF6', '#9597D1','#7D7FB5','#64658A','#4D4E69']
+        };
+
+        var chartVideos = new google.visualization.PieChart(document.getElementById('pieVideoAbandon'));
+        chartVideos.draw(dataPieVideos, optionsPieVideos);
+        
+    // Exercise At Least One Correct    
+    var dataPieVideos = google.visualization.arrayToDataTable([
+        ['Exercise At Least One Correct', 'Number of students'],
+        ['A few exercises', {{exercise_one_correct_groups.0}}],
+        ['Several exercises', {{exercise_one_correct_groups.1}}],
+        ['Around half exercises', {{exercise_one_correct_groups.2}}],
+        ['Many exercises', {{exercise_one_correct_groups.3}}],
+        ['Majority of exercises', {{exercise_one_correct_groups.4}}]
+      ]);
+
+        var optionsPieVideos = {
+          title: 'Exercise At Least One Correct',
+          backgroundColor: '#e9e5e2',
+          width: '400px',
+          colors: ['#92C0EE', '#83AED8','#7398BD','#506A84','#394C5F']
+        };
+
+    var chartVideos = new google.visualization.PieChart(document.getElementById('pieOneCorrect'));
+    chartVideos.draw(dataPieVideos, optionsPieVideos);
+    
+    // Exercise Optional
+    var dataPieVideos = google.visualization.arrayToDataTable([
+        ['Use Optional Items?', 'Number of students'],        
+        ['Yes', {{optional_elements_groups.1}}],
+        ['No', {{optional_elements_groups.0}}]
+        ]);
+
+        var optionsPieVideos = {
+          title: 'Use Optional Items?',
+          backgroundColor: '#e9e5e2',
+          width: '400px',
+          colors: ['#E8C29D','#B09274']
+        };
+
+        var chartVideos = new google.visualization.PieChart(document.getElementById('pieOptionalElement'));
+        chartVideos.draw(dataPieVideos, optionsPieVideos);
+        
+     // Focus exercises or videos
+     var dataPieVideos = google.visualization.arrayToDataTable([
+         ['Focus', 'Number of students'],
+         ['Video Focus', {{focus_groups.0}}],
+         ['Exercise Focus', {{focus_groups.1}}],
+         ['Uncertain Focus', {{focus_groups.2}}]
+         ]);
+
+         var optionsPieVideos = {
+           title: 'Focus on exercise or videos?',
+           backgroundColor: '#e9e5e2',
+           width: '400px',
+           colors: ['#ACAFF6', '#92C0EE', '#7F7F7F']
+         };
+
+         var chartVideos = new google.visualization.PieChart(document.getElementById('pieResourceFocus'));
+         chartVideos.draw(dataPieVideos, optionsPieVideos);
+}
+</script>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title></title>
+</head>
+<body> 
+<center>
+	<table align="center" border="0" width="100%">
+	<tr>
+		<td>
+			<div id="pieExerciseExplorer" style="width: 400px; height: 250px;"></div>
+		</td>
+		
+		<td>
+			<div id="pieOneCorrect" style="width: 400px; height: 250px;"></div>			
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<div id="pieExerciseAbandon" style="width: 400px; height: 250px;"></div>
+		</td>
+		
+		<td>
+			<div id="pieResourceFocus" style="width: 400px; height: 250px;"></div>				
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<div id="pieVideoAbandon" style="width: 400px; height: 250px;"></div>				
+		</td>
+		
+		<td>
+			<div id="pieVideoExplorer" style="width: 400px; height: 250px;"></div>	
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center">
+			<div id="pieOptionalElement" style="width: 400px; height: 250px;"></div>
+		</td>
+	</tr>
+	</table>
+</center>
+</body>
+</html>

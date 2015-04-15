@@ -1,0 +1,22 @@
+queue:
+- name: evaluation-stats
+  rate: 15/s
+  
+- name: use-of-platform
+  rate: 15/s
+  
+- name: correct-progress
+  rate: 15/s
+  
+- name: time-distribution
+  rate: 15/s
+  
+- name: exercise-solving-habits
+  rate: 15/s
+    
+- name: gamification-habits
+  rate: 15/s
+  
+  
+  
+  

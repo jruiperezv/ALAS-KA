@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="/static_viewer/elements.css" />
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+google.load("visualization", "1", {packages:["corechart"]});
+google.setOnLoadCallback(drawChart);
+function drawChart() {
+	
+    // Time Profile  
+    var dataPie = google.visualization.arrayToDataTable([
+          ['Time Schedule', 'Number of students'],
+          ['Morning Schedule', {{time_profiling_groups.0}}],
+          ['Afternoon Schedule', {{time_profiling_groups.1}}],
+          ['Night Schedule', {{time_profiling_groups.2}}],
+          ['Uncertain Time Schedule', {{time_profiling_groups.3}}]
+        ]);
+
+        var optionsPie = {
+          title: 'Time Schedule',
+          backgroundColor: '#e9e5e2',
+          width: '400px',
+          colors: ['#C9C96C', '#7F7160', '50587C','7F7F7F']
+        };
+
+        var chartPieExercises = new google.visualization.PieChart(document.getElementById('pieTimeSchedule'));
+        chartPieExercises.draw(dataPie, optionsPie);
+    
+    // Morning Efficiency
+    var dataPie = google.visualization.arrayToDataTable([
+          ['Morning Efficiency', 'Number of students'],
+          ['Very low efficiency', {{morning_efficiency_groups.0}}],
+          ['Low efficiency', {{morning_efficiency_groups.1}}],   
+          ['Medium efficiency', {{morning_efficiency_groups.2}}],
+          ['High efficiency', {{morning_efficiency_groups.3}}],   
+          ['Very high efficiency', {{morning_efficiency_groups.4}}]
+        ]);
+
+        var optionsPie = {
+          title: 'Morning Efficiency',
+          backgroundColor: '#e9e5e2',
+          width: '400px',
+          colors: ['#92C0EE', '#83AED8','#7398BD','#506A84','#394C5F']
+        };
+
+        var chartPieExercises = new google.visualization.PieChart(document.getElementById('morningEfficiency'));
+        chartPieExercises.draw(dataPie, optionsPie);
+        
+        
+    // Afternoon Efficiency
+    var dataPie = google.visualization.arrayToDataTable([
+          ['Afternoon Efficiency', 'Number of students'],
+          ['Very low efficiency', {{afternoon_efficiency_groups.0}}],
+          ['Low efficiency', {{afternoon_efficiency_groups.1}}],   
+          ['Medium efficiency', {{afternoon_efficiency_groups.2}}],
+          ['High efficiency', {{afternoon_efficiency_groups.3}}],   
+          ['Very high efficiency', {{afternoon_efficiency_groups.4}}]   
+        ]);
+
+        var optionsPie = {
+          title: 'Afternoon Efficiency',
+          backgroundColor: '#e9e5e2',
+          width: '400px',
+          colors: ['#92C0EE', '#83AED8','#7398BD','#506A84','#394C5F']
+        };
+
+        var chartPieExercises = new google.visualization.PieChart(document.getElementById('afternoonEfficiency'));
+        chartPieExercises.draw(dataPie, optionsPie);
+        
+        
+    // Afternoon Efficiency
+    var dataPie = google.visualization.arrayToDataTable([
+          ['Night Efficiency', 'Number of students'],
+          ['Very low efficiency', {{night_efficiency_groups.0}}],
+          ['Low efficiency', {{night_efficiency_groups.1}}],   
+          ['Medium efficiency', {{night_efficiency_groups.2}}],
+          ['High efficiency', {{night_efficiency_groups.3}}],   
+          ['Very high efficiency', {{night_efficiency_groups.4}}]      
+        ]);
+
+        var optionsPie = {
+          title: 'Night Efficiency',
+          backgroundColor: '#e9e5e2',
+          width: '400px',
+          colors: ['#92C0EE', '#83AED8','#7398BD','#506A84','#394C5F']
+        };
+
+        var chartPieExercises = new google.visualization.PieChart(document.getElementById('nightEfficiency'));
+        chartPieExercises.draw(dataPie, optionsPie);
+        
+}
+</script>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title></title>
+</head>
+<body> 
+<center>
+	<table align="center" border="0" width="100%">
+	<tr>
+		<td>
+			<div id="pieTimeSchedule" style="width: 400px; height: 250px;"></div>
+		</td>
+		<td>
+			<div id="morningEfficiency" style="width: 400px; height: 250px;"></div>
+		</td>	
+	</tr>	
+	<tr>
+		<td>
+			<div id="afternoonEfficiency" style="width: 400px; height: 250px;"></div>
+		</td>
+		<td>
+			<div id="nightEfficiency" style="width: 400px; height: 250px;"></div>
+		</td>	
+	</tr>
+	</table>
+</center>
+</body>
+</html>

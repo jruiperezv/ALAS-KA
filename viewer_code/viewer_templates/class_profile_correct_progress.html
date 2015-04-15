@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="/static_viewer/elements.css" />
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+google.load("visualization", "1", {packages:["corechart"]});
+google.setOnLoadCallback(drawChart);
+function drawChart() {
+	
+    // Exercise Progress    
+    var dataPie = google.visualization.arrayToDataTable([
+          ['Progress', 'Number of students'],
+          ['Very low progress', {{exercise_progress_groups.0}}],
+          ['Low progress', {{exercise_progress_groups.1}}],
+          ['Medium progress', {{exercise_progress_groups.2}}],
+          ['High progress', {{exercise_progress_groups.3}}],
+          ['Very high progress', {{exercise_progress_groups.4}}]
+        ]);
+
+        var optionsPie = {
+          title: 'Exercise Correct Progress',
+          backgroundColor: '#e9e5e2',
+          width: '400px',
+          colors: ['#92C0EE', '#83AED8','#7398BD','#506A84','#394C5F']
+        };
+
+        var chartPieExercises = new google.visualization.PieChart(document.getElementById('pieExerciseProgress'));
+        chartPieExercises.draw(dataPie, optionsPie);
+        
+    /* Exercise Efficiency
+    var dataPieVideos = google.visualization.arrayToDataTable([
+        ['Efficiency', 'Number of students'],
+        ['(<50)% exercise efficiency', {{exercise_efficiency_groups.0}}],
+        ['[50~100]% exercise efficiency', {{exercise_efficiency_groups.1}}],
+        ['[101~200]% exercise efficiency', {{exercise_efficiency_groups.2}}],
+        ['(>200)% exercise efficiency', {{exercise_efficiency_groups.3}}]
+        ]);
+
+        var optionsPieVideos = {
+          title: 'Correct Exercise Efficiency',
+          backgroundColor: '#e9e5e2',
+          width: '400px'
+        };
+
+    var chartVideos = new google.visualization.PieChart(document.getElementById('pieExerciseEfficiency'));
+    chartVideos.draw(dataPieVideos, optionsPieVideos);
+    */
+    // Video Progress
+    var dataPieVideos = google.visualization.arrayToDataTable([
+        ['Progress', 'Number of students'],
+        ['Very low progress', {{video_progress_groups.0}}],
+        ['Low progress', {{video_progress_groups.1}}],
+        ['Medium progress', {{video_progress_groups.2}}],
+        ['High progress', {{video_progress_groups.3}}],
+        ['Very high progress', {{video_progress_groups.4}}]
+        ]);
+
+        var optionsPieVideos = {
+          title: 'Video Correct Progress',
+          backgroundColor: '#e9e5e2',
+          width: '400px',
+          colors: ['#ACAFF6', '#9597D1','#7D7FB5','#64658A','#4D4E69']
+        };
+
+        var chartVideos = new google.visualization.PieChart(document.getElementById('pieVideoProgress'));
+        chartVideos.draw(dataPieVideos, optionsPieVideos);
+        
+    // Video Efficiency
+    var dataPieVideos = google.visualization.arrayToDataTable([
+        ['Efficiency', 'Number of students'],
+        ['Very low efficiency', {{video_efficiency_groups.0}}],
+        ['Low efficiency', {{video_efficiency_groups.1}}],
+        ['Medium efficiency', {{video_efficiency_groups.2}}],
+        ['High efficiency', {{video_efficiency_groups.3}}],
+        ['Very high efficiency', {{video_efficiency_groups.4}}]
+        ]);
+
+        var optionsPieVideos = {
+          title: 'Efficiency at watching videos',
+          backgroundColor: '#e9e5e2',
+          width: '400px',
+          colors: ['#ACAFF6', '#9597D1','#7D7FB5','#64658A','#4D4E69']
+        };
+
+        var chartVideos = new google.visualization.PieChart(document.getElementById('pieVideoEfficiency'));
+        chartVideos.draw(dataPieVideos, optionsPieVideos);
+        
+    /* Correct Exercises
+    var dataPieVideos = google.visualization.arrayToDataTable([
+        ['Correct Exercises', 'Number of students'],
+        ['(<40)% correct exercises', {{correct_exercises_groups.0}}],
+        ['[40~65]% correct exercises', {{correct_exercises_groups.1}}],
+        ['[66~85]% correct exercises', {{correct_exercises_groups.2}}],
+        ['(>85)% correct exercises', {{correct_exercises_groups.3}}]
+        ]);
+
+        var optionsPieVideos = {
+          title: 'Correct Exercises',
+          backgroundColor: '#e9e5e2',
+          width: '400px'
+        };
+
+        var chartVideos = new google.visualization.PieChart(document.getElementById('pieCorrectExercises'));
+        chartVideos.draw(dataPieVideos, optionsPieVideos);
+        
+        */
+     /* Efficiency Proficiencies
+        var dataPieVideos = google.visualization.arrayToDataTable([
+            ['Efficiency in Proficiencies', 'Number of students'],
+            ['(<25)% efficiency', {{efficiency_proficiencies_groups.0}}],
+            ['[25~50]% efficiency', {{efficiency_proficiencies_groups.1}}],
+            ['[51~75]% efficiency', {{efficiency_proficiencies_groups.2}}],
+            ['(>75)% efficiency', {{efficiency_proficiencies_groups.3}}]
+            ]);
+
+            var optionsPieVideos = {
+              title: 'Efficiency in Proficiencies',
+              backgroundColor: '#e9e5e2',
+              width: '400px'
+            };
+
+            var chartVideos = new google.visualization.PieChart(document.getElementById('pieEfficiencyProficiencies'));
+            chartVideos.draw(dataPieVideos, optionsPieVideos); 
+       */     
+       // Solving Exercises Efficiency
+       var dataPieVideos = google.visualization.arrayToDataTable([
+           ['Efficiency', 'Number of students'],
+           ['Very low efficiency', {{solving_efficiency_groups.0}}],
+           ['Low efficiency', {{solving_efficiency_groups.1}}],
+           ['Medium efficiency', {{solving_efficiency_groups.2}}],
+           ['High efficiency', {{solving_efficiency_groups.3}}],
+           ['Very high efficiency', {{solving_efficiency_groups.4}}]
+           ]);
+
+           var optionsPieVideos = {
+             title: 'Efficiency at Solving Exercises',
+             backgroundColor: '#e9e5e2',
+             width: '400px',
+             colors: ['#92C0EE', '#83AED8','#7398BD','#506A84','#394C5F']
+           };
+
+           var chartVideos = new google.visualization.PieChart(document.getElementById('pieSolvingEfficiency'));
+           chartVideos.draw(dataPieVideos, optionsPieVideos); 
+}
+</script>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title></title>
+</head>
+<body> 
+<center>
+<br>
+	<table align="center" border="0" width="100%">
+	<tr>
+		<td>
+			<div id="pieExerciseProgress" style="width: 400px; height: 250px;"></div>
+		</td>
+		<td>
+			<div id="pieSolvingEfficiency" style="width: 400px; height: 250px;"></div>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<div id="pieVideoProgress" style="width: 400px; height: 250px;"></div>			
+		</td>	
+		<td>
+			<div id="pieVideoEfficiency" style="width: 400px; height: 250px;"></div>
+		</td>
+	</tr>
+	</table>
+</center>
+</body>
+</html>

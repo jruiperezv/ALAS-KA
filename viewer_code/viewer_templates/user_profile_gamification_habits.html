@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<link rel="stylesheet" type="text/css" href="/static_viewer/elements.css" />
+<script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      
+      function drawChart() {
+    	  
+    	//Bar
+        var dataBar = google.visualization.arrayToDataTable([
+          ['Gamification Habits (percentage)', 'User', 'Classroom mean'],
+          ["Badge's Motivation",  {{userProfile.badge_over_time}},  {{classMean_badge_over_time}}],
+          ['Badge Points Percentage',  {{userProfile.badge_point_percentage}},  {{classMean_point_percentage}}]
+        ]);
+
+        var optionsBar = {
+          title: 'Gamification Habits',
+          vAxis: {title: 'Gamification Habits',  titleTextStyle: {color: '#990000'}},
+          hAxis: {maxValue:30, minValue:0},
+          height: 250,
+          width:750,
+          legend: {position: 'top', aligment: 'center'} ,
+          axisTitlesPosition: 'out',
+          backgroundColor: '#e9e5e2',
+          chartArea:'{left:20,top:0,width:"10%",height:"10%"}',
+          colors: ['#694444', '#A96D6D']
+        };
+        
+        var chartBar = new google.visualization.BarChart(document.getElementById('chartBar_div'));
+        chartBar.draw(dataBar, optionsBar);
+      }	
+      
+</script>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title></title>
+</head>
+<body>
+<center>
+<br>
+<br>
+<table>
+	<tr>
+		<td>
+			<div id="chartBar_div" style="width: 750px; height: 150px; display: inline;" ></div>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<div class="CSSTableGenerator" >
+                <table>
+                    <tr>
+                        <td>
+                            <div title="Set the mouse over the different items to read explanations of each type of measure">Measure <font size="1">(Mouse over for details)</font></div>
+                        </td>
+                        <td >
+                            <div title="{{descriptionList.3}}">Gamification Habits<font size="1"> (User Information)</font></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td >
+                            <div title="{{descriptionList.20}}">Badge's Motivation</div>
+                        </td>
+                        <td>
+                             {{ textClusterization.0 }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td >
+                            <div title="{{descriptionList.21}}">Badge Points Percentage</div>
+                        </td>
+                        <td>
+							 {{ textClusterization.1 }}
+                        </td>
+                    </tr>        
+                </table>
+            </div>
+		</td>
+	</tr>
+</table>
+</center>
+</body>
+</html>

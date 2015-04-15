@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="/static_viewer/elements.css" />
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+google.load("visualization", "1", {packages:["corechart"]});
+google.setOnLoadCallback(drawChart);
+function drawChart() {
+	
+    // Recommendation Listener 
+    var dataPie = google.visualization.arrayToDataTable([
+          ['Recommendation Listener', 'Number of students'],
+          ['Very low listener', {{recommendation_listener_groups.0}}],
+          ['Low listener', {{recommendation_listener_groups.1}}],
+          ['Medium listener', {{recommendation_listener_groups.2}}],
+          ['High listener', {{recommendation_listener_groups.3}}],
+          ['Very high listener', {{recommendation_listener_groups.4}}]
+        ]);
+
+        var optionsPie = {
+          title: 'Recommendation Listener in Exercises',
+          backgroundColor: '#e9e5e2',
+          width: '400px',
+          colors: ['#92C0EE', '#83AED8','#7398BD','#506A84','#394C5F']
+        };
+
+        var chartPieExercises = new google.visualization.PieChart(document.getElementById('pieRecommendationListener'));
+        chartPieExercises.draw(dataPie, optionsPie);
+        
+    // Forgetful in Exercises
+    var dataPieVideos = google.visualization.arrayToDataTable([
+        ['Forgetful in Exercises', 'Number of students'],
+        ['Very low forgetful', {{forgetful_user_group.0}}],
+        ['Low forgetful', {{forgetful_user_group.1}}],
+        ['Medium forgetful', {{forgetful_user_group.2}}],
+        ['High forgetful', {{forgetful_user_group.3}}],
+        ['Very high forgetful', {{forgetful_user_group.4}}]
+        ]);
+
+        var optionsPieVideos = {
+          title: 'Forgetful in Exercises',
+          backgroundColor: '#e9e5e2',
+          width: '400px',
+          colors: ['#92C0EE', '#83AED8','#7398BD','#506A84','#394C5F']
+        };
+
+    var chartVideos = new google.visualization.PieChart(document.getElementById('pieForgetfulExercises'));
+    chartVideos.draw(dataPieVideos, optionsPieVideos);
+    
+    // Hint Avoidance
+    var dataPieVideos = google.visualization.arrayToDataTable([
+        ['Hint Avoidance', 'Number of students'],
+        ['Very low hint avoidance', {{hint_avoidance_groups.0}}],
+        ['Low hint avoidance', {{hint_avoidance_groups.1}}],
+        ['Medium hint avoidance', {{hint_avoidance_groups.2}}],
+        ['High hint avoidance', {{hint_avoidance_groups.3}}],
+        ['Very high hint avoidance', {{hint_avoidance_groups.4}}]
+        ]);
+
+        var optionsPieVideos = {
+          title: 'Hint Avoidance',
+          backgroundColor: '#e9e5e2',
+          width: '400px',
+          colors: ['#92C0EE', '#83AED8','#7398BD','#506A84','#394C5F']
+        };
+
+    var chartVideos = new google.visualization.PieChart(document.getElementById('pieHintAvoidance'));
+    chartVideos.draw(dataPieVideos, optionsPieVideos);
+    
+    // Video Avoidance
+    var dataPieVideos = google.visualization.arrayToDataTable([
+        ['Video Avoidance', 'Number of students'],
+        ['Very low video avoidance', {{video_avoidance_groups.0}}],
+        ['Low video avoidance', {{video_avoidance_groups.1}}],
+        ['Medium video avoidance', {{video_avoidance_groups.2}}],
+        ['High hint avoidance', {{video_avoidance_groups.3}}],
+        ['Very high hint avoidance', {{video_avoidance_groups.4}}]
+        ]);
+
+        var optionsPieVideos = {
+          title: 'Video Avoidance',
+          backgroundColor: '#e9e5e2',
+          width: '400px',
+          colors: ['#92C0EE', '#83AED8','#7398BD','#506A84','#394C5F']
+        };
+
+    var chartVideos = new google.visualization.PieChart(document.getElementById('pieVideoAvoidance'));
+    chartVideos.draw(dataPieVideos, optionsPieVideos);
+    
+    // Unreflective User
+    var dataPieVideos = google.visualization.arrayToDataTable([
+        ['Unreflective User', 'Number of students'],
+        ['Very low unreflective', {{unreflective_user_groups.0}}],
+        ['Low unreflective', {{unreflective_user_groups.1}}],
+        ['Medium unreflective', {{unreflective_user_groups.2}}],
+        ['High unreflective', {{unreflective_user_groups.3}}],
+        ['Very high unreflective', {{unreflective_user_groups.4}}]
+        ]);
+
+        var optionsPieVideos = {
+          title: 'Unreflective User',
+          backgroundColor: '#e9e5e2',
+          width: '400px',
+          colors: ['#92C0EE', '#83AED8','#7398BD','#506A84','#394C5F']
+        };
+
+    var chartVideos = new google.visualization.PieChart(document.getElementById('pieUnreflective'));
+    chartVideos.draw(dataPieVideos, optionsPieVideos);
+    
+    // Hint Abuser
+    var dataPieVideos = google.visualization.arrayToDataTable([
+        ['Hint Abuser', 'Number of students'],
+        ['Very low hint abuser', {{hint_abuser_groups.0}}],
+        ['Low hint abuser', {{hint_abuser_groups.1}}],
+        ['Medium hint abuser', {{hint_abuser_groups.2}}],
+        ['High hint abuser', {{hint_abuser_groups.3}}],
+        ['Very high hint abuser', {{hint_abuser_groups.4}}]
+        ]);
+
+        var optionsPieVideos = {
+          title: 'Hint Abuser',
+          backgroundColor: '#e9e5e2',
+          width: '400px',
+          colors: ['#92C0EE', '#83AED8','#7398BD','#506A84','#394C5F']
+        };
+
+    var chartVideos = new google.visualization.PieChart(document.getElementById('pieHintAbuser'));
+    chartVideos.draw(dataPieVideos, optionsPieVideos);
+    
+}
+</script>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title></title>
+</head>
+<body> 
+<center>
+	<table align="center" border="0" width="100%">
+	<tr>
+		<td>
+			<div id="pieRecommendationListener" style="width: 400px; height: 250px;"></div>
+		</td>
+		
+		<td>
+			<div id="pieForgetfulExercises" style="width: 400px; height: 250px;"></div>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<div id="pieHintAvoidance" style="width: 400px; height: 250px;"></div>
+		</td>
+		
+		<td>
+			<div id="pieVideoAvoidance" style="width: 400px; height: 250px;"></div>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<div id="pieUnreflective" style="width: 400px; height: 250px;"></div>
+		</td>
+		
+		<td>
+			<div id="pieHintAbuser" style="width: 400px; height: 250px;"></div>
+		</td>
+	</tr>
+	</table>
+</center>
+</body>
+</html>

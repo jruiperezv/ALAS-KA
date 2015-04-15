@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<link rel="stylesheet" type="text/css" href="/static_viewer/elements.css" />
+<script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      
+      function drawChart() {
+        
+        // User Schedule
+        var dataBar = google.visualization.arrayToDataTable([
+          ['Time Distribution of Use of the Platform (percentage)', 'Morning', 'Afternoon', 'Night'],
+          ['User Schedule', {{userProfile.time_schedule_morning}}, {{userProfile.time_schedule_afternoon}}, {{userProfile.time_schedule_night}}],
+          ['Class Schedule', {{classMean_time_morning}}, {{classMean_time_afternoon}}, {{classMean_time_night}}],
+        ]);
+
+        var optionsBar = {
+          title: 'Time Distribution of Use of the Platform',
+          vAxis: {title: 'Time Distribution (percentage) ',  titleTextStyle: {color: '#990000'}},
+          hAxis: {maxValue:100, minValue:0},
+          height: 250,
+          width:750,
+          legend: {position: 'top', aligment: 'center'} ,
+          axisTitlesPosition: 'out',
+          backgroundColor: '#e9e5e2',
+          isStacked: true,
+          chartArea:'{left:20,top:0,width:"10%",height:"10%"}',
+          colors: ['#C9C96C', '#7F7160', '50587C']
+        };
+      
+      var chartBar = new google.visualization.BarChart(document.getElementById('userSchedule'));
+      chartBar.draw(dataBar, optionsBar);    
+          
+      
+      // Schedule Efficiency
+      var dataBarEfficiency = google.visualization.arrayToDataTable([
+	    ['Efficiency by Schedule (percentage)', 'User', 'Class Mean'],	   
+	    ['Morning Efficiency',  {{userProfile.morning_schedule_efficiency}}, {{classMean_efficiency_morning}}],
+	    ['Afternoon Efficiency',  {{userProfile.afternoon_schedule_efficiency}}, {{classMean_efficiency_afternoon}}],
+	    ['Night Efficiency',  {{userProfile.night_schedule_efficiency}}, {{classMean_efficiency_night}}],
+	    ['Average Efficiency',  {{userProfile.average_schedule_efficiency}}, {{classMean_efficiency_average}}],
+	  ]);
+	
+	  var optionsBarEfficiency = {
+	    title: 'Efficiency by Schedule',
+	    vAxis: {title: 'Efficiency by Schedule (percentage) ',  titleTextStyle: {color: '#990000'}},
+	    hAxis: {maxValue:100, minValue:0},
+	    height: 250,
+	    width:750,
+	    legend: {position: 'top', aligment: 'center'} ,
+	    axisTitlesPosition: 'out',
+	    backgroundColor: '#e9e5e2',
+	    chartArea:'{left:20,top:0,width:"10%",height:"10%"}',
+	    colors: ['#694444', '#A96D6D']
+	  };
+	
+	var chartBarEfficiency = new google.visualization.BarChart(document.getElementById('scheduleEfficiency'));
+	chartBarEfficiency.draw(dataBarEfficiency, optionsBarEfficiency);  
+	
+    // Students Constancy
+    var dataBarConstancy = google.visualization.arrayToDataTable([
+	    ['Student Constancy (percentage)', 'User', 'Class Mean'],	   
+	    ['Time (Minutes/Day)',  {{userProfile.constancy_mean}},  {{classMean_constancy_mean}}],    
+	  ]);
+	
+	  var optionsBarConstancy = {
+	    title: 'Student Constancy (Minutes/Day)',
+	    vAxis: {title: 'Student Constancy (Minutes/Day) ',  titleTextStyle: {color: '#990000'}},
+	    height: 125,
+	    width:750,
+	    hAxis: {maxValue:25, minValue:0},
+	    legend: {position: 'top', aligment: 'center'} ,
+	    axisTitlesPosition: 'out',
+	    backgroundColor: '#e9e5e2',
+	    chartArea:'{left:20,top:0,width:"10%",height:"10%"}',
+	    colors: ['#694444', '#A96D6D']
+	  };
+	
+	var chartBarConstancy = new google.visualization.BarChart(document.getElementById('studentMeanConstancy'));
+	chartBarConstancy.draw(dataBarConstancy, optionsBarConstancy);    
+	
+    // Students Constancy
+    var dataBarConstancy = google.visualization.arrayToDataTable([
+	    ['Student Constancy (percentage)', 'User', 'Class Mean'],	   
+        ['Time Variance',  {{userProfile.constancy_variance}},  {{classMean_constancy_var}}],
+	  ]);
+	
+	  var optionsBarConstancy = {
+	    title: 'Student Constancy (Variance)',
+	    vAxis: {title: 'Student Constancy (Variance)',  titleTextStyle: {color: '#990000'}},
+	    height: 125,
+	    width:750,
+	    legend: {position: 'top', aligment: 'center'} ,
+	    axisTitlesPosition: 'out',
+	    backgroundColor: '#e9e5e2',
+	    chartArea:'{left:20,top:0,width:"10%",height:"10%"}',
+	    colors: ['#694444', '#A96D6D']
+	  };
+	
+	var chartBarConstancy = new google.visualization.BarChart(document.getElementById('studentVarConstancy'));
+	chartBarConstancy.draw(dataBarConstancy, optionsBarConstancy); 
+   }	   
+</script>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title></title>
+</head>
+<body>
+<center>
+</br></br>
+<table>
+	<tr>
+		<td>
+			<div id="userSchedule" style="width: 750px; height: 250px;" ></div>
+		</td>
+	</tr>		
+	<tr>
+		<td>
+			<div id="scheduleEfficiency" style="width: 750px; height: 250px;" ></div>
+		</td>
+	</tr>		
+	<tr>
+		<td>
+			<div id="studentMeanConstancy" style="width: 750px; height: 125px;" ></div>
+		</td>
+	</tr>	
+	<tr>
+		<td>
+			<div id="studentVarConstancy" style="width: 750px; height: 125px;" ></div>
+		</td>
+	</tr>	
+	<tr>
+		<td>
+			</br></br>
+			<div class="CSSTableGenerator" >
+                <table>
+                    <tr>
+                        <td>
+                            <div title="Set the mouse over the different items to read explanations of each type of measure">Measure <font size="1">(Mouse over for details)</font></div>
+                        </td>
+                        <td >
+                            <div title="{{descriptionList.2}}">Time Distribution of Use of the Platform<font size="1"> (User Information)</font></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td >
+                            <div title="{{descriptionList.17}}">User Schedule</div>
+                        </td>
+                        <td>
+                            {{ textClusterization.0 }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td >
+                            <div title="{{descriptionList.18}}">Exercise Efficiency by Schedule</div>
+                        </td>
+                        <td>
+							 {{ textClusterization.1 }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td >
+                            <div title="{{descriptionList.19}}">Student's Constancy</div>
+                        </td>
+                        <td>
+							The student has spent a mean value of {{ userProfile.constancy_mean }} minutes per day with a time variance of {{ userProfile.constancy_variance }} minutes
+                        </td>
+                    </tr>               
+                </table>
+            </div>
+		</td>
+	</tr>
+</table>
+</center>
+</body>
+</html>

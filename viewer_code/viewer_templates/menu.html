@@ -1,0 +1,256 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+<title>Khan Academy Profile Viewer</title>
+<link rel="stylesheet" type="text/css" href="/static_viewer/style.css" />
+<link rel="stylesheet" type="text/css" href="/static_viewer/elements.css" />
+</head>
+<body>
+<div id="main_container">
+	<div id="header">
+    	<div class="logo"><img src="/static_viewer/images/logo.png" border="0" alt="" title="" /></div>       
+    </div>
+        <div class="menu">
+        	<ul>                                                                         
+        		<li class="selected"><a href="/menu_viewer">home</a></li>
+        		{% if viewerUser.professor or viewerUser.student %} 
+                	<li><a href="/profile_viewer">user</a></li>
+                {% endif %}
+                {% if viewerUser.professor %} 
+               		<li><a href="/class_viewer">class</a></li>
+               	{% endif %}
+                <li><a href="/about_viewer">about</a></li>
+        	</ul>
+        </div>
+    <div class="center_content">
+	
+        <div class="features">   
+            <div class="title">Welcome to our Add-on of the Learning Analytics Support for the Khan Academy (ALAS-KA) platform.</div>
+             <p class="welcome">
+			  We have designed and implemented a learning analytics extension that includes new higher level metrics and visualizations. We think these new features will improve the teachers' and students' learning experience in the Khan Academy framework, giving them new intelligent information that is useful for the learning process. Next, there are a few recommendations about the use of ALAS-KA:
+			 </p>
+             <div class="features">
+                    <ul class="list">
+                    <li><span>-</span>Please, read the description of each metric to understand the information you are receiving and how it can be interpreted.</li>
+					<li><span>-</span>As a teacher you are able to visualize individual information of each of your students in your class; this allows you to keep track of your students in-depth. Also you can visualize global statistics of your entire class as a whole.</li>
+					</br>
+					<!-- <li><span>-</span>As a student you will be able to visualize only your own information, you will be able to keep track of your progress, efficiency and other habits in your learning for your self-awareness.</li> -->
+                    </ul> 
+             </div>
+             <p class="welcome">
+            In the next table, the description of the metrics provided by ALAS-KA is displayed whenever you set the mouse over a parameter:
+             </p>
+            
+         </div> 
+         <br/>
+         <br/>
+         <table border="0" width="90%" align="center" >
+         <tr>
+         	<td>
+         		<div class="CSSTableGenerator2" >
+         			<table width="80%" >
+	         			<tr>
+	         				<td>
+	         					<div title="{{descriptionList.0}}">Total Use of the Platform</div>
+	         				</td>
+	         			</tr>
+	         			<tr>
+	         				<td>
+	         					<div title="{{descriptionList.6}}">Different Exercises Accessed</div>
+	         				</td>
+	         			</tr>
+	         			<tr>
+	         				<td>
+	         					<div title="{{descriptionList.7}}">At least 1 Correct Exercise</div>
+	         				</td>
+	         			</tr>
+	         			<tr>
+	         				<td>
+	         					<div title="{{descriptionList.8}}">Exercise Abandon</div>
+	         				</td>
+	         			</tr>
+	         			<tr>
+	         				<td>
+	         					<div title="{{descriptionList.9}}">Video Abandon</div>
+	         				</td>
+	         			</tr>
+	         			<tr>
+	         				<td>
+	         					<div title="{{descriptionList.10}}">Different Videos Accessed</div>
+	         				</td>
+	         			</tr>
+	         			<tr>
+	         				<td>
+	         					<div title="{{descriptionList.11}}">Exercise Over Video Focus</div>
+	         				</td>
+	         			</tr>
+	         			<tr>
+	         				<td>
+	         					<div title="{{descriptionList.12}}">Optional Elements</div>
+	         				</td>
+	         			</tr>
+         			</table>
+         		</div>         	
+         	</td>
+         	<td width="50px">
+         	</td>
+         	<td>         	
+         	 	<div class="CSSTableGenerator2" >
+         			<table width="80%">
+	         			<tr>
+	         				<td>
+	         					<div title="{{descriptionList.1}}">Correct Progress on the Platform</div>
+	         				</td>
+	         			</tr>
+	         			<tr>
+	         				<td>
+	         					<div title="{{descriptionList.13}}">Exercise Correct Progress</div>
+	         				</td>
+	         			</tr>
+	         			<tr>
+	         				<td>
+	         					<div title="{{descriptionList.14}}">Exercise Solving Efficiency</div>
+	         				</td>
+	         			</tr>
+	         			<tr>
+	         				<td>
+	         					<div title="{{descriptionList.15}}">Video Correct Progress</div>
+	         				</td>
+	         			</tr>
+	         			<tr>
+	         				<td>
+	         					<div title="{{descriptionList.16}}">Video Efficiency</div>
+	         				</td>
+	         			</tr>
+         			</table>
+         		</div>         	         	         	         	
+         	</td>
+         	<td width="50px">
+         	</td>
+         	<td>
+         	     <div class="CSSTableGenerator2" >
+         			<table width="80%">
+	         			<tr>
+	         				<td>
+	         					<div title="{{descriptionList.4}}">Exercise Solving Habits</div>
+	         				</td>
+	         			</tr>
+	         			<tr>
+	         				<td>
+	         					<div title="{{descriptionList.22}}">Recommendation Listener</div>
+	         				</td>
+	         			</tr>
+	         			<tr>
+	         				<td>
+	         					<div title="{{descriptionList.23}}">Forgetful User</div>
+	         				</td>
+	         			</tr>
+	         			<tr>
+	         				<td>
+	         					<div title="{{descriptionList.24}}">Hint Avoidance</div>
+	         				</td>
+	         			</tr>
+	         			<tr>
+	         				<td>
+	         					<div title="{{descriptionList.25}}">Video Avoidance</div>
+	         				</td>
+	         			</tr>
+	         			<tr>
+	         				<td>
+	         					<div title="{{descriptionList.26}}">Unreflective User</div>
+	         				</td>
+	         			</tr>
+	         			<tr>
+	         				<td>
+	         					<div title="{{descriptionList.27}}">Hint Abuser</div>
+	         				</td>
+	         			</tr>
+         			</table>
+         		</div>   
+         	</td>                 
+         </tr> 
+         <tr height="30px"> </tr>
+         <tr>
+	         <td>
+	         	<div class="CSSTableGenerator2" >
+         			<table width="80%">
+	         			<tr>
+	         				<td>
+	         					<div title="{{descriptionList.5}}">Course Evaluation</div>
+	         				</td>
+	         			</tr>
+	         			<tr>
+	         				<td>
+	         					<div title="{{descriptionList.28}}">Customized Measure for Course Evaluation</div>
+	         				</td>
+	         			</tr>
+         			</table>
+         		</div>   	         	
+	         </td>
+	        <td width="50px">
+         	</td>
+	         <td>
+	         	<div class="CSSTableGenerator2" >
+         			<table width="80%" >
+	         			<tr>
+	         				<td>
+	         					<div title="{{descriptionList.2}}">Time Distribution of Use of the Platform</div>
+	         				</td>
+	         			</tr>
+	         			<tr>
+	         				<td>
+	         					<div title="{{descriptionList.17}}">User Schedule</div>
+	         				</td>
+	         			</tr>
+	         			<tr>
+	         				<td>
+	         					<div title="{{descriptionList.18}}">Exercise Efficiency by Schedule</div>
+	         				</td>
+	         			</tr>
+	         			<tr>
+	         				<td>
+	         					<div title="{{descriptionList.19}}">Student's Constancy</div>
+	         				</td>
+	         			</tr>
+         			</table>
+         		</div>
+	         </td>
+	        <td width="50px">
+         	</td>
+	         <td>
+	         	<div class="CSSTableGenerator2" >
+         			<table width="80%">
+	         			<tr >
+	         				<td>
+	         					<div title="{{descriptionList.3}}">Gamification Habits</div>
+	         				</td>
+	         			</tr>
+	         			<tr>
+	         				<td>
+	         					<div title="{{descriptionList.20}}">Badge's Motivation</div>
+	         				</td>
+	         			</tr>
+	         			<tr>
+	         				<td>
+	         					<div title="{{descriptionList.21}}">Badge Points Percentage</div>
+	         				</td>
+	         			</tr>
+         			</table>
+         		</div>
+	         </td>
+         </tr>       
+         </table>
+    </div>    
+    <div id="footer">                                              
+        <div class="left_footer"><pre>2014 Universidad Carlos III de Madrid. &copy; All rights reserved.                     Template provided by<a href="http://csstemplatesmarket.com">csstemplatesmarket.</a></pre></div>
+        <div class="right_footer"><img src="https://developers.google.com/appengine/images/appengine-silver-120x30.gif" alt="Powered by Google App Engine" /></div>
+    </div>
+    
+    
+    
+</div>
+<!-- end of main_container -->
+
+</body>
+</html>

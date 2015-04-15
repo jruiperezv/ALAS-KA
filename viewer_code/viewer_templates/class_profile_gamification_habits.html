@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="/static_viewer/elements.css" />
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+google.load("visualization", "1", {packages:["corechart"]});
+google.setOnLoadCallback(drawChart);
+function drawChart() {
+	
+    // Exercise explorer    
+    var dataPie = google.visualization.arrayToDataTable([
+          ['Badges/Hour', 'Number of students'],
+          ['Very low motivation', {{badges_hour_groups.0}}],
+          ['Low motivation', {{badges_hour_groups.1}}],
+          ['Medium motivation', {{badges_hour_groups.2}}],
+          ['High motivation', {{badges_hour_groups.3}}],
+          ['Very high motivation', {{badges_hour_groups.4}}]
+        ]);
+
+        var optionsPie = {
+          title: "Badge's Motivation",
+          backgroundColor: '#e9e5e2',
+          width: '400px',
+          colors: ['#E8C29D', '#CEA77F','#B09274','#987A5C','#77614A']
+        };
+        
+
+        var chartPieExercises = new google.visualization.PieChart(document.getElementById('pieBadgeTime'));
+        chartPieExercises.draw(dataPie, optionsPie);
+        
+    // Video explorer
+    var dataPieVideos = google.visualization.arrayToDataTable([
+        ['Badge Points Percentage', 'Number of students'],
+        ['Very low percentage', {{points_percentage_group.0}}],
+        ['Low percentage', {{points_percentage_group.1}}],
+        ['Medium percentage', {{points_percentage_group.2}}],
+        ['High percentage', {{points_percentage_group.3}}],
+        ['Very high percentage', {{points_percentage_group.4}}]
+        ]);
+
+        var optionsPieVideos = {
+          title: 'Badge Points Percentage',
+          backgroundColor: '#e9e5e2',
+          width: '400px',
+          colors: ['#E8C29D', '#CEA77F','#B09274','#987A5C','#77614A']
+        };
+
+    var chartVideos = new google.visualization.PieChart(document.getElementById('pieBadgePoints'));
+    chartVideos.draw(dataPieVideos, optionsPieVideos);
+   
+}
+</script>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title></title>
+</head>
+<body> 
+<center>
+	<table align="center" border="0" width="100%">
+	<tr>
+		<td>
+			<div id="pieBadgeTime" style="width: 400px; height: 250px;"></div>
+		</td>
+		
+		<td>
+			<div id="pieBadgePoints" style="width: 400px; height: 250px;"></div>
+		</td>
+	</tr>
+	</table>
+</center>
+</body>
+</html>

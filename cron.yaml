@@ -1,0 +1,31 @@
+cron:
+- description: evaluation
+  url: /admin/evaluation_stats
+  schedule: every 24 hours
+  timezone: Europe/Madrid
+  
+- description: use-of-platform
+  url: /admin/use_of_platform
+  schedule: every 24 hours
+  timezone: Europe/Madrid
+  
+- description: correct-progress
+  url: /admin/correct_progress
+  schedule: every 24 hours
+  timezone: Europe/Madrid
+  
+- description: time-distribution
+  url: /admin/time_distribution
+  schedule: every 24 hours
+  timezone: Europe/Madrid
+  
+- description: exercise-solving-habits
+  url: /admin/exercise_solving
+  schedule: every 24 hours
+  timezone: Europe/Madrid
+  
+- description: gamification-habits
+  url: /admin/gamification_habits
+  schedule: every 24 hours
+  timezone: Europe/Madrid
+  
