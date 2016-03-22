@@ -4,7 +4,7 @@
 
 [Presentación de ALAS-KA al recibir premio eMadrid](https://www.youtube.com/watch?v=lPFtZsb_3Ew&list=PLP1szIuk64fn27MQXew_UqwwWqU8gi-_v&index=1)
 
-1- GUIA DE INSTALACION
+# 1- GUIA DE INSTALACION
 
 En este apéndice se recogen los pasos para realizar la instalación e integración del código de ALAS-KA con el de Khan Academy
 
@@ -20,9 +20,9 @@ En este punto se comentan cuáles son los elementos comunes entre ALAS-KA y Khan
   - Fichero queue.yaml de configuración de queues.
 
 
-PROCESO DE INSTALACIÓN DE ALAS-KA:
+## PROCESO DE INSTALACIÓN DE ALAS-KA:
 
-  1.1- UNIFICACIÓN DEL CÓDIGO
+##  1.1- UNIFICACIÓN DEL CÓDIGO
 
 En primer lugar hay que unificar el código generado para ALAS-KA con el ya existente de Khan Academy. Eso implica que hay que copiar los elementos independientes a la raíz de Khan Academy y unificar los que son comunes añadiendo el código de ALAS-KA a los ficheros ya existentes de Khan Academy:
 - Se introducen la carpeta static_viewer y el paquete viewer_code en la carpeta raíz de Khan Academy
@@ -33,14 +33,14 @@ En primer lugar hay que unificar el código generado para ALAS-KA con el ya exis
 
 En definitiva aunque todo este listado de modificaciones pueda parecer tedioso, de forma resumida lo único que hay que hacer es copiar todo el código generado para ALAS-KA en los archivos de Khan Academy sin sobrescribir ni modificar el código original.
 
-  1.2- ADAPTACIÓN DEL CÓDIGO AL CURSO
+##  1.2- ADAPTACIÓN DEL CÓDIGO AL CURSO
 
 Debido a que cada curso está compuesto por unos ejercicios y vídeos diferentes, así como su fecha de inicio, hay algunos detalles que hay que adaptar.
 - Ya que los cursos tienen diferentes fechas de inicio, hay que adaptar la medida de la media y varianza (para calcular la constancia del alumno) poniendo el día de la fecha de inicio del curso. Para ello hay que modificar en el viewer_code/viewer_cron/time_distribution.py dentro de la función constancy_meanvar(self, usuario) la variable startDate a la fecha de inicio del curso.
 - Los nombres de los ejercicios y las youtube_id de los vídeos también cambia por lo que hay que hacer esta adaptación también. En el fichero del script de carga de ejercicios y vídeos denominado scripts/exercise_videos_script.py escribir en la variable listaEjercicios los nombres de todos los ejercicios pertenecientes a dicho curso. De la misma forma en la variable listaVideos escribir las youtube_id de los vídeos del curso.
 - También sería posible añadir un enlace a ALAS-KA en la pantalla inicial de Khan Academy que llevara a los usuarios de forma más sencilla a la pantalla inicial que está ubicada en http://(yourappid).appspot.com/menu_viewer.
 
-  1.3- EJECUCIÓN DE SCRIPTS Y ASIGNACIÓN DE PERMISOS
+##  1.3- EJECUCIÓN DE SCRIPTS Y ASIGNACIÓN DE PERMISOS
 
 En este paso habría que ejecutar los script necesarios para que se generen las entidades de ALAS-KA ViewerUser, ViewerExercise y ViewerVideo.
 
@@ -50,11 +50,11 @@ En este paso habría que ejecutar los script necesarios para que se generen las 
 - Ahora es necesario adjudicar los diferentes permisos, uno de los puntos de trabajo futuro es realizar una nterfaz para la administración de los diferentes permisos de los diferentes usuarios de ALAS-KA. Debido a que en la actualidad todavía no se encuentra disponible, hay que modificar estos permisos a mano desde la interfaz del Datastore. Por lo tanto desde la interfaz de administración de Google App Engine, en la pestaña del Datastore Viewer (se explicó su acceso en la sección de Validación y Verificación). Se accede a la entidad de ViewerUser y se tiene que ir usuario en usuario asignando los permisos. Para los profesores, hay que poner la propiedad professor = True, de forma similar para los alumnos habrá que poner la propiedad student = True. En caso de que ese usuario no tenga permisos y no deba acceder a las visualizaciones, habrá que dejar ambas propiedades a False.
 
 
-2- MANUAL DE USUARIO
+# 2- MANUAL DE USUARIO
 
 En este apéndice se va a hacer una revisión de las diferentes pantallas de ALAS-KA, que permitirán recorrer la interfaz y conocer los tipos de interacción que se puede hacer en cada una de las pantallas. Esta guía puede ayudar al usuario a entender la funcionalidad que existe implementada en la aplicación y como usarla de forma general.
 
-INTRODUCCIÓN:
+## 2.1- INTRODUCCIÓN:
 ALAS-KA es una herramienta de learning analytics que está basada en la plataforma de Khan Academy. Su objetivo es el de ofrecer unas visualizaciones de distintos tipos de información que puedan ayudar a los profesores y alumnos a mejorar el proceso de aprendizaje durante el curso en la plataforma de Khan Academy. Los alumnos van a poder acceder a las visualizaciones de sus propios parámetros pero no a las del resto de alumnos o a la clase. Los profesores podrán ver las visualizaciones de todos los alumnos del curso y también otras globales de la clase.
 
 ![Alt text](https://cloud.githubusercontent.com/assets/5990099/7161736/f07e7a7a-e390-11e4-8329-124760fb96bc.png)
@@ -69,7 +69,7 @@ Por otra parte, en caso de que se desee contactar con las personas participantes
 En las secciones siguientes se van a describir cuáles son las visualizaciones que se pueden acceder y su significado.
 
 
-VISUALIZACIONES INDIVIDUALES:
+## 2.2- VISUALIZACIONES INDIVIDUALES:
 
 Para acceder a las visualizaciones individuales de los diferentes estudiantes hay que pinchar en la pestaña user del menú de ALAS-KA. Esto nos lleva a una interfaz en la que hay dos cajas de selección: en la primera denominada “Select the student” se pueden elegir los distintos estudiantes de la clase, y en la segunda llamada “Type of measure” se puede acceder al tipo de medidas que se quieren consultar. Las existentes en el tipo de medidas coincidirán con las tablas vistas en home y cada una de ellas incluirá dichos parámetros. Una vez que las dos cajas de selección tengan elementos escogidos, aparecerá la visualización acorde a lo que se haya elegido. También se puede ir cambiando las cajas e irán cambiando las visualizaciones acorde a su selección. 
 
@@ -92,7 +92,7 @@ La idea en esta visualización es que la barra completa represente el 100% del t
 En la figura anterior se incluyen las gráficas de barras y la tabla con la descripción de dicho alumno. Dicha tabla sirve como un soporte adicional a las visualizaciones realizando una descripción verbal de cuáles son los resultados de cada parámetro para dicho usuario. Por cada uno de los parámetros se definen unos umbrales mediante los cuales se agrupan los usuarios en 5 grupos y en base a dichos grupos se realiza la descripción que parece en las tablas posteriormente. Estos umbrales son también los mismos que se usan posteriormente para las visualizaciones de clase.
 
 
-VISUALIZACIONES DE CLASE:
+## 2.3- VISUALIZACIONES DE CLASE:
 
 
 Para acceder a las visualizaciones de clase tan sólo hay que acceder a la pestaña class en el menú de ALAS-KA. Lo cual llevará a una pantalla de funcionamiento similar a la de user, pero en la que sólo hay una caja de selección denominada “Type of measure”, ya que las visualizaciones son de la clase completa y no se puede cambiar entre los diferentes estudiantes. En la figura siguiente se puede ver un ejemplo de las gráficas de clase del grupo de medidas Progreso Correcto en la Plataforma.
